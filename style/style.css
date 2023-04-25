@@ -72,6 +72,9 @@
   margin: 2px;
   border-radius: 50%;
 }
+.input-btn-container button:hover{
+  background-color: #eeeeee;
+}
 .img-input{
   box-sizing: content-box;
   padding-top: 3px;
