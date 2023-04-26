@@ -1,12 +1,10 @@
 ## 프로젝트 이름
 
----
 
 POST IT! YOU IDEA 💡
 
 ## 프로젝트 소개
 
----
 
 HTML5에서 추가된 로컬스토리지를 활용한 반응형 메모장 구현.
 
@@ -14,13 +12,11 @@ HTML5에서 추가된 로컬스토리지를 활용한 반응형 메모장 구현
 
 ## 기술 스택
 
----
 
 Javascript, HTML/CSS
 
 ## 기능
 
----
 
 1. **메모 추가 기능**
 - 메모 작성 input을 클릭하면 UI 확장
@@ -60,7 +56,5 @@ Javascript, HTML/CSS
 - textarea는 입력된 줄 수에 맞춰 크기 조절
 
 ## 실행 방법
-
----
 
 깃헙 실행 페이지 : **[https://ho-ji.github.io/memo-post-it/](https://ho-ji.github.io/memo-post-it/)**
