@@ -39,7 +39,7 @@ parent.addEventListener('click', (e)=>{
     colorPicker.style.display = 'none';
   }
   /* 배경선택버튼 선택시 */
-  else if(e.target === btnColor || e.target.parentElement === btnColor){
+  else if(e.target === btnColor){
     colorPicker.style.display = 'flex';
     const pos = btnColor.getBoundingClientRect();
     colorPicker.style.left= pos.x - 150 +'px';
@@ -47,7 +47,7 @@ parent.addEventListener('click', (e)=>{
   }
   
   /*메모 초기화 버튼 선택 시, 입력된 값 초기화*/
-  else if(e.target === btnRefresh || e.target.parentElement === btnRefresh){
+  else if(e.target === btnRefresh){
     resetInputText();
     colorPicker.style.display = 'none';
     resetColorPicker();
@@ -73,7 +73,7 @@ parent.addEventListener('click', (e)=>{
   }
   
   /* done 버튼 선택 시*/
-  else if(e.target === btnDone || e.target.parentElement === btnDone){
+  else if(e.target === btnDone){
     if(inputTitle.value === "" && inputContent.value === ""){
       swal({
         text: "빈 메모는 만들 수 없습니다!",
@@ -90,12 +90,12 @@ parent.addEventListener('click', (e)=>{
     }
   }
 
-  else if(e.target === btnEditClose || e.target.parentElement == btnEditClose){
+  else if(e.target === btnEditClose){
     editModal.style.visibility = "hidden";
   }
 
   /* edit 배경 변경 선택 시*/
-  else if(e.target === btnEditColor || e.target.parentElement == btnEditColor){
+  else if(e.target === btnEditColor){
     colorPicker.style.display = 'flex';
     const pos = btnEditColor.getBoundingClientRect();
     colorPicker.style.left = pos.x - 150 +'px';
@@ -103,14 +103,14 @@ parent.addEventListener('click', (e)=>{
     colorPicker.style.position = 'fixed';
   }
   /* edit 새로고침 선택 시 */
-  else if(e.target === btnEditRefresh || e.target.parentElement === btnEditRefresh){
+  else if(e.target === btnEditRefresh){
     resetEditText();
     colorPicker.style.display = 'none';
     resetColorPicker();
   }
 
   /* edit done 선택 시 */
-  else if(e.target === btnEditDone || e.target.parentElement === btnEditDone){
+  else if(e.target === btnEditDone){
     if(editTitle.value === "" && editContent.value === ""){
       swal({
         text: "빈 메모는 만들 수 없습니다!",

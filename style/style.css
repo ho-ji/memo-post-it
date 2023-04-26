@@ -79,10 +79,16 @@
 }
 .input-btn-container button:hover{
   background-color: #eeeeee;
+  background-clip: border-box;
 }
-.img-input{
-  width: 20px;
-  height: 20px;
+.btn-color{
+  background: url('../img/palette.svg') no-repeat center/contain content-box;
+}
+.btn-refresh{
+  background: url('../img/refresh.svg') no-repeat center/contain content-box;
+}
+.btn-done{
+  background: url('../img/done.svg') no-repeat center/contain content-box;
 }
 .color-picker{
   display: none;
@@ -191,13 +197,12 @@
   position: absolute;
   right: 0;
   top: 0;
-}
-#btn-edit-close img{
-  width: 20px;
-  height: 20px;
+  background: url('../img/close.svg') no-repeat center/contain content-box;
+  
 }
 #btn-edit-close:hover{
   background-color: #eeeeee;
+  background-clip: border-box;
 }
 #modal-title{
   font-weight: 500;
@@ -217,10 +222,6 @@
   padding:0;
 }
 
-.btn-delete-memo{
-  display: block;
-  background: url('../img/delete.svg') no-repeat center;
-}
 
 @media screen and (max-width: 1600px){
   .section-display{

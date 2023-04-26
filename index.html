@@ -24,9 +24,9 @@
         <textarea rows="1" class="input-title" placeholder="제목"></textarea>
         <textarea rows="1" class="input-content" placeholder="메모 작성..."></textarea>
         <div class="input-btn-container">
-          <button class="btn-color" type="button"><img src="img/palette.svg" alt="배경선택"class="img-input"></button>
-          <button class="btn-refresh" type="button"><img src="img/refresh.svg" alt="메모초기화" class="img-input"></button>
-          <button class="btn-done" type="button"><img src="img/done.svg" alt="작성완료" class="img-input"></button>
+          <button class="btn-color" type="button"><span class="a11y-hidden">배경색 변경 버튼</span></button>
+          <button class="btn-refresh" type="button"><span class="a11y-hidden">작성 중인 메모 초기화 버튼</span></button>
+          <button class="btn-done" type="button"><span class="a11y-hidden">메모 저장 버튼</span></button>
         </div>
         </section>
       <section class="section-display">
@@ -37,14 +37,14 @@
       <section id="edit-modal-box">
         <div id="modal-header">
           <h2 id="modal-title">[메모 수정]</h2>
-          <button id="btn-edit-close"type="button"><img src="./img/close.svg" alt="닫기"></button>
+          <button id="btn-edit-close"type="button"><span class="a11y-hidden">수정 창 닫기 버튼</span></button>
         </div>
         <textarea rows="1" class="input-title" placeholder="제목" id="edit-title"></textarea>
         <textarea rows="1" class="input-content" placeholder="메모 작성..." id="edit-content"></textarea>
         <div class="input-btn-container">
-          <button class="btn-color" type="button" id="btn-edit-color"><img src="img/palette.svg" alt="배경선택"class="img-input"></button>
-          <button class="btn-refresh" type="button" id="btn-edit-refresh"><img src="img/refresh.svg" alt="메모초기화" class="img-input"></button>
-          <button class="btn-done" type="button" id="btn-edit-done"><img src="img/done.svg" alt="작성완료" class="img-input"></button>
+          <button class="btn-color" type="button" id="btn-edit-color"><span class="a11y-hidden">배경색 변경 버튼</span></button>
+          <button class="btn-refresh" type="button" id="btn-edit-refresh"><span class="a11y-hidden">작성 중인 메모 초기화 버튼</span></button>
+          <button class="btn-done" type="button" id="btn-edit-done"><span class="a11y-hidden">메모 수정 완료 버튼</span></button>
         </div>
       </section>
     </div>
