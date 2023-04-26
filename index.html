@@ -7,6 +7,7 @@
     <title>POST IT! YOUR IDEA</title>
     <link rel="stylesheet" href="./style/reset.css">
     <link rel="stylesheet" href="./style/style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
   <div class="header-wrapper">
@@ -32,7 +33,19 @@
       </section>
     </main>
   </div>
-  <div class="color-picker">
+    <div id="edit-modal">
+      <div id="edit-modal-box">
+        <p id="modal-title">메모 수정</p>
+        <textarea rows="1" class="input-title" placeholder="제목" id="edit-title"></textarea>
+        <textarea rows="1" class="input-content" placeholder="메모 작성..." id="edit-content"></textarea>
+        <div class="input-btn-container">
+          <button class="btn-color" type="button" id="btn-edit-color"><img src="img/palette.svg" alt="배경선택"class="img-input"></button>
+          <button class="btn-refresh" type="button" id="btn-edit-refresh"><img src="img/refresh.svg" alt="메모초기화" class="img-input"></button>
+          <button class="btn-done" type="button" id="btn-edit-done"><img src="img/done.svg" alt="작성완료" class="img-input"></button>
+        </div>
+      </div>
+    </div>
+    <div class="color-picker" id="edit-color-picker">
     <button class="color-selected" id="btn-color-white" type="button"></button>
     <button id="btn-color-red" type="button"></button>
     <button id="btn-color-yellow" type="button"></button>
