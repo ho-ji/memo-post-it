@@ -228,9 +228,11 @@ const render = () => {
       editModal.style.visibility = "visible";
 
       editTitle.value = localStorage.getItem("title"+memoNumber);
+      editTitle.style.height = 'auto';
       editTitle.style.height = editTitle.scrollHeight + 'px';
 
       editContent.value = localStorage.getItem("content"+memoNumber);
+      editContent.style.height = 'auto';
       editContent.style.height = editContent.scrollHeight + 'px';
 
       editModalBox.style.backgroundColor = localStorage.getItem("bc"+memoNumber);

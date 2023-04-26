@@ -9,6 +9,7 @@
   position: absolute;
 }
 *{
+  font-family: Roboto, sans-serif;
   box-sizing: border-box;
   user-select: none;
   -webkit-user-drag: none;
@@ -144,7 +145,7 @@
   height: fit-content;
   min-height: 100px;
   border-radius: 5px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #cccccc;
   padding: 10px; 
   word-break: break-all;
 }
