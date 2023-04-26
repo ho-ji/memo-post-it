@@ -14,3 +14,6 @@ button{
   color: inherit;
   padding: 0;
 }
+img{
+  vertical-align: top;
+}

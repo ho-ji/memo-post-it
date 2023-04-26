@@ -18,6 +18,7 @@ const editContent = parent.querySelector('#edit-content');
 const btnEditColor = parent.querySelector('#btn-edit-color');
 const btnEditRefresh = parent.querySelector('#btn-edit-refresh');
 const btnEditDone = parent.querySelector('#btn-edit-done');
+const btnEditClose = parent.querySelector('#btn-edit-close');
 
 /* 입력된 줄 수에 맞춰 textarea 크기 조절 */
 const textArea = parent.querySelectorAll('textarea');
@@ -87,6 +88,10 @@ parent.addEventListener('click', (e)=>{
       colorPicker.style.display = 'none';      
       resetColorPicker();
     }
+  }
+
+  else if(e.target === btnEditClose || e.target.parentElement == btnEditClose){
+    editModal.style.visibility = "hidden";
   }
 
   /* edit 배경 변경 선택 시*/

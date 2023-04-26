@@ -74,18 +74,15 @@
 .input-btn-container button{
   width: 44px;
   height: 44px;
-  padding: 8px;
-  margin: 2px;
+  padding: 12px;
   border-radius: 50%;
 }
 .input-btn-container button:hover{
   background-color: #eeeeee;
 }
 .img-input{
-  box-sizing: content-box;
-  padding-top: 3px;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 20px;
+  height: 20px;
 }
 .color-picker{
   display: none;
@@ -176,20 +173,54 @@
   width: 500px;
   border-radius: 5px;
   border: solid 2px #777777;
+  padding: 10px 15px 15px 15px;
+}
+#modal-header{
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#btn-edit-close{
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#btn-edit-close img{
+  width: 20px;
+  height: 20px;
+}
+#btn-edit-close:hover{
+  background-color: #eeeeee;
 }
 #modal-title{
-  padding: 15px 15px 0px 15px;
-  font-weight: 600;
-  color: #111111;
-  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #999999;
 }
-#edit-modal-box .input-title{
+#edit-title{
   display: block;
+  padding:0;
+  margin-bottom: 10px;
+}
+#edit-content{
+  padding:0;
 }
 #edit-modal-box .input-btn-container{
   display: flex;
+  padding:0;
 }
 
+.btn-delete-memo{
+  display: block;
+  background: url('../img/delete.svg') no-repeat center;
+}
 
 @media screen and (max-width: 1600px){
   .section-display{
