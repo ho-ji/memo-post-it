@@ -285,4 +285,17 @@ const render = () => {
     })
   })
 };
+window.onscroll = () => {
+  const btnTopScroll = parent.querySelector('#btn-top-scroll');
+  if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+    btnTopScroll.style.display = 'block';
+  }
+  else{
+    btnTopScroll.style.display = 'none';
+  }
+}
+const toTopScroll = () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 render();
