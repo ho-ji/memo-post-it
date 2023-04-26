@@ -4,7 +4,7 @@ const sectionInput = parent.querySelector('.section-input');
 const inputTitle = parent.querySelector('.input-title');
 const inputContent = parent.querySelector('.input-content');
 const inputBtnContainer = parent.querySelector('.input-btn-container');
-const btnColor = parent.querySelector('.btn-color');
+const btnPalette = parent.querySelector('.btn-palette');
 const colorPicker = parent.querySelector('.color-picker');
 const btnRefresh = parent.querySelector('.btn-refresh');
 const btnDone = parent.querySelector('.btn-done');
@@ -31,7 +31,6 @@ textArea.forEach(item =>{
 
 
 parent.addEventListener('click', (e)=>{
-  console.log(e);
   /* 메모 작성 선택 시 확장 */
   if(e.target === inputContent){
     inputTitle.style.display = 'block';
@@ -39,9 +38,9 @@ parent.addEventListener('click', (e)=>{
     colorPicker.style.display = 'none';
   }
   /* 배경선택버튼 선택시 */
-  else if(e.target === btnColor){
+  else if(e.target === btnPalette){
     colorPicker.style.display = 'flex';
-    const pos = btnColor.getBoundingClientRect();
+    const pos = btnPalette.getBoundingClientRect();
     colorPicker.style.left= pos.x - 150 +'px';
     colorPicker.style.top = pos.y + 40 +'px';
   }
@@ -56,7 +55,7 @@ parent.addEventListener('click', (e)=>{
   /*color-picker 선택 시*/
   else if(e.target === colorPicker || e.target.id.startsWith("btn-color-")){
     if(e.target !== colorPicker){
-      if(editModal.style.visibility === "hidden")
+      if(inputBtnContainer.style.display === 'flex')
         sectionInput.style.backgroundColor = getComputedStyle(e.target).backgroundColor;
       else
         editModalBox.style.backgroundColor = getComputedStyle(e.target).backgroundColor;
@@ -139,7 +138,7 @@ parent.addEventListener('click', (e)=>{
   }
 
   /* 수정 모달 영역 외 선택 시, 모달 삭제*/
-  if(editModal.style.visibility !== "hidden" && e.target === editModal){
+  if(e.target === editModal){
     swal({
       text: "메모를 수정하지 않고 나가겠습니까?",
       buttons: ["취소", "확인"], 
@@ -192,6 +191,24 @@ const editMemo = (title, content, bc, n) => {
   localStorage.setItem("bc"+ n, bc);
   render();
 }
+const deleteMemo = (n) => {
+  const len = localStorage.length/3;
+  n = Number(n);
+  for(let i=n+1; i<len; i++){
+    let tempTitle = localStorage.getItem("title" + i);
+    let tempContent = localStorage.getItem("content" + i);
+    let tempBc = localStorage.getItem("bc" + i);
+    console.log(tempTitle,tempContent,tempBc, i);
+    localStorage.setItem("title"+(i-1), tempTitle);
+    localStorage.setItem("content"+(i-1), tempContent);
+    localStorage.setItem("bc"+(i-1), tempBc);
+  }
+
+  localStorage.removeItem("title"+(len-1));
+  localStorage.removeItem("content"+(len-1));
+  localStorage.removeItem("bc"+(len-1));
+  render();
+}
 
 const render = () => {
   sectionDisplay.innerHTML = "";
@@ -201,6 +218,7 @@ const render = () => {
       let memoItem = document.createElement('div');
       let memoTitle = document.createElement('p');
       let memoContent = document.createElement('p');
+      let btnDeleteMemo = document.createElement('button');
       
       memoTitle.textContent = localStorage.getItem("title"+ n);
       memoContent.textContent = localStorage.getItem("content"+ n);
@@ -208,13 +226,14 @@ const render = () => {
 
       if(memoTitle.textContent !== "")
         memoTitle.setAttribute("style", "font-weight: 600; margin-bottom: 10px");
-        memoContent.setAttribute("style", "margin-bottom: 10px");
         memoItem.setAttribute("style", "background-color:" + bc);
         memoItem.setAttribute("class", "display-memo");
         memoItem.setAttribute("data-memo-number", n)
+        btnDeleteMemo.setAttribute("class", "btn-delete-memo");
 
       memoItem.appendChild(memoTitle);
       memoItem.appendChild(memoContent);
+      memoItem.appendChild(btnDeleteMemo);
 
       sectionDisplay.appendChild(memoItem);
     }
@@ -227,22 +246,43 @@ const render = () => {
   }
   /*메모가 렌더링 될때마다 이벤트 리스너추가*/
   const memos = document.querySelectorAll('.display-memo');
-  memos.forEach(item =>
+  memos.forEach(item =>{
     item.addEventListener('click', (e)=>{
-      const memoNumber = item.dataset.memoNumber;
-      editModal.style.visibility = "visible";
+      /*메모 삭제 */
+      if(e.target.className === 'btn-delete-memo'){
+        swal({
+          text: "해당 메모를 삭제하겠습니까??",
+          buttons: ["취소", "확인"], 
+        }).then(v=>{
+          if(v){
+            deleteMemo(item.dataset.memoNumber);
+          }
+        });
+      }
+      else{
 
-      editTitle.value = localStorage.getItem("title"+memoNumber);
-      editTitle.style.height = 'auto';
-      editTitle.style.height = editTitle.scrollHeight + 'px';
-
-      editContent.value = localStorage.getItem("content"+memoNumber);
-      editContent.style.height = 'auto';
-      editContent.style.height = editContent.scrollHeight + 'px';
-
-      editModalBox.style.backgroundColor = localStorage.getItem("bc"+memoNumber);
-      
-      editModalBox.setAttribute('data-memo-number', memoNumber);
-  }))
+        const memoNumber = item.dataset.memoNumber;
+        editModal.style.visibility = "visible";
+        
+        editTitle.value = localStorage.getItem("title"+memoNumber);
+        editTitle.style.height = 'auto';
+        editTitle.style.height = editTitle.scrollHeight + 'px';
+        
+        editContent.value = localStorage.getItem("content"+memoNumber);
+        editContent.style.height = 'auto';
+        editContent.style.height = editContent.scrollHeight + 'px';
+        
+        editModalBox.style.backgroundColor = localStorage.getItem("bc"+memoNumber);
+        
+        editModalBox.setAttribute('data-memo-number', memoNumber);
+      }
+      });
+      item.addEventListener('mouseover', (e)=>{
+      item.children[2].style.visibility = "visible";
+    })
+    item.addEventListener('mouseout', (e)=>{
+      item.children[2].style.visibility = "hidden";
+    })
+  })
 };
 render();

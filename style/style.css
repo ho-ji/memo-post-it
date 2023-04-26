@@ -81,7 +81,7 @@
   background-color: #eeeeee;
   background-clip: border-box;
 }
-.btn-color{
+.btn-palette{
   background: url('../img/palette.svg') no-repeat center/contain content-box;
 }
 .btn-refresh{
@@ -220,6 +220,20 @@
 #edit-modal-box .input-btn-container{
   display: flex;
   padding:0;
+}
+
+.btn-delete-memo {
+  visibility: hidden;
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  border-radius: 50%;
+  float: right;
+  background: url('../img/delete.svg') no-repeat center/contain content-box;
+}
+.btn-delete-memo:hover{
+  background-color: #eeeeee;
+  background-clip: border-box;
 }
 
 
