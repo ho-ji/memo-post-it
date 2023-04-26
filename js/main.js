@@ -37,16 +37,9 @@ parent.addEventListener('click', (e)=>{
   
   /*메모 초기화 버튼 선택 시, 입력된 값 초기화*/
   else if(e.target === btnRefresh || e.target.parentElement === btnRefresh){
-    inputTitle.value = "";
-    inputContent.value = "";
+    resetInputText();
     colorPicker.style.display = 'none';
-    for(c of colorPicker.children){
-      if(c.classList.contains('color-selected')){
-        c.classList.remove('color-selected');
-      }
-    }
-    colorPicker.children[0].classList.add('color-selected');
-    sectionInput.style.backgroundColor = 'white';
+    resetColorPicker();
   }
   
   /*color-picker 선택 시*/
@@ -71,20 +64,13 @@ parent.addEventListener('click', (e)=>{
   }
   
   
-  /*section-input 및 color-picker 외부요서 선택 시, 둘다 사라짐*/
+  /*section-input 및 color-picker 외부요소 선택 시, 둘다 사라짐*/
   else{
     inputTitle.style.display = 'none';
-    inputContent.value ="";
-    inputTitle.value = "";
+    resetInputText();
     inputBtnContainer.style.display = 'none';
     colorPicker.style.display = 'none';
-    for(c of colorPicker.children){
-      if(c.classList.contains('color-selected')){
-        c.classList.remove('color-selected');
-      }
-    }
-    colorPicker.children[0].classList.add('color-selected');
-    sectionInput.style.backgroundColor = 'white';
+    resetColorPicker();
   }
 })
 
@@ -94,3 +80,20 @@ window.addEventListener('resize',function(){
     colorPicker.style.display = 'none';
   }
 })
+
+const resetInputText = ()=>{
+  inputContent.value ="";
+  inputTitle.value = "";
+  inputTitle.style.height = 'auto';
+  inputContent.style.height = 'auto';
+}
+const resetColorPicker = ()=>{
+  for(c of colorPicker.children){
+    if(c.classList.contains('color-selected')){
+      c.classList.remove('color-selected');
+    }
+  }
+  colorPicker.children[0].classList.add('color-selected');
+  sectionInput.style.backgroundColor = 'white';
+}
+
