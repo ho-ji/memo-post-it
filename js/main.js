@@ -67,8 +67,8 @@ parent.addEventListener('click', (e)=>{
           c.classList.add('color-selected');
         }
       }
+      colorPicker.style.display = 'none';
     }
-    colorPicker.style.display = 'none';
   }
   
   /* done 버튼 선택 시*/
