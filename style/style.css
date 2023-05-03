@@ -135,7 +135,7 @@
 }
 
 .section-display{
-  width: 1500px;
+  width: 1550px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -144,7 +144,7 @@
 }
 
 .display-memo{
-  width: calc(250px - 50px/6);
+  width: 250px;
   height: fit-content;
   min-height: 100px;
   border-radius: 5px;
@@ -256,26 +256,17 @@
 
 @media screen and (max-width: 1600px){
   .section-display{
-    width: 1250px;
-  }
-  .display-memo{
-    width: calc(250px - 40/5);
+    width: 1290px;
   }
 }
 @media screen and (max-width: 1350px){
   .section-display{
-    width: 1000px;
-  }
-  .display-memo{
-    width: calc(250px - 30/4);
+    width: 1030px;
   }
 }
 @media screen and (max-width: 1100px){
   .section-display{
-    width: 750px;
-  }
-  .display-memo{
-    width: calc(250px - 20/3);
+    width: 770px;
   }
 }
 @media screen and (max-width: 850px){
@@ -283,10 +274,7 @@
     width: 500px;
   }
   .section-display{
-    width: 500px;
-  }
-  .display-memo{
-    width: calc(250px - 10/2);
+    width: 510px;
   }
 }
 @media screen and (max-width: 600px){
